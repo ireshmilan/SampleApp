@@ -45,4 +45,38 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Prism.DryIoc.Maui" />
+	  <None Remove="RestEase" />
+	  <None Remove="RestEase.HttpClientFactory" />
+	  <None Remove="Views\" />
+	  <None Remove="ViewModels\" />
+	  <None Remove="Models\" />
+	  <None Remove="Services\" />
+	  <None Remove="Services\Abstractions\" />
+	  <None Remove="RestServices\" />
+	  <None Remove="CommunityToolkit.Mvvm" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.254-beta" />
+	  <PackageReference Include="RestEase" Version="1.5.7" />
+	  <PackageReference Include="RestEase.HttpClientFactory" Version="1.5.7" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview4" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Views\" />
+	  <Folder Include="ViewModels\" />
+	  <Folder Include="Models\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="Services\Abstractions\" />
+	  <Folder Include="RestServices\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Views\GitHubUserInfoView.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\GitHubUserInfoView.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	</ItemGroup>
 </Project>

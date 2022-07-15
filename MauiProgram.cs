@@ -1,4 +1,11 @@
-﻿namespace SampleApp;
+﻿using RestEase.HttpClientFactory;
+using SampleApp.RestServices;
+using SampleApp.Services;
+using SampleApp.Services.Abstractions;
+using SampleApp.ViewModels;
+using SampleApp.Views;
+
+namespace SampleApp;
 
 public static class MauiProgram
 {
@@ -6,7 +13,21 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
-			.UseMauiApp<App>()
+            .UsePrismApp<App>(prism =>
+            {
+				prism.RegisterTypes(container =>
+				{
+					container.Register<IGitHubUserService, GitHubUserService>();
+
+					container.RegisterForNavigation<GitHubUserInfoView, GitHubUserInfoViewModel>();
+				})
+				.ConfigureServices(service =>
+                {
+					service.AddRestEaseClient<IGitHubApiService>("https://api.github.com");
+                })
+				.OnAppStart(navigationService => navigationService.CreateBuilder()
+				.AddNavigationPage().AddSegment<GitHubUserInfoViewModel>().Navigate());
+            })
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
