@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleApp.Views.GitHubOrgInfoView"
+             Title="GitHubOrgInfoView">
+<VerticalStackLayout Margin="30,0">
+        <Entry Margin="0,40,0,20" Text="{Binding OrgName}" />
+        <Button Text="Get My Info" Command="{Binding GetOrgInfoCommand}"/>
+
+
+        <VerticalStackLayout Spacing="20">
+            <Image HeightRequest="200" WidthRequest="200" Margin="0,50,0,0" Source="{Binding Avatar}"/>
+            <Label HorizontalOptions="Center" FontSize="20" Text="{Binding Name}" FontAttributes="Bold"/>
+            <Label HorizontalOptions="Center" Text="{Binding Id}"/>
+            <Label HorizontalOptions="Center" Text="{Binding Description}"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

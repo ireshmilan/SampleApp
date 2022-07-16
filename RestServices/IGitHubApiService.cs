@@ -9,6 +9,9 @@ namespace SampleApp.RestServices
 	{
         [Get("/users/{userName}")]
         Task<GitHubUser> GetUserInfo([Path] string userName);
-	}
+
+        [Get("/orgs/{orgName}")]
+        Task<GitHubOrg> GetOrgName([Path] string orgName);
+    }
 }
 

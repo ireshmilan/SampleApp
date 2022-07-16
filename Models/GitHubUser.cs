@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace SampleApp.Models
 {
-	public class GitHubUser
+	public class GitHubUser : ResponseBase
     {
         [JsonProperty("name")]
         public string DisplayName { get; set; }

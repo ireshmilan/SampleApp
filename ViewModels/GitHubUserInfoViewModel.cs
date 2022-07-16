@@ -31,7 +31,7 @@ namespace SampleApp.ViewModels
 			Debug.WriteLine(GiHubuserName);
 
             var userInfo = await _gitHubUserService.GetUserInfo(GiHubuserName);
-
+            
             Avatar = userInfo.Avatar;
             DisplayName = userInfo.DisplayName;
             Bio = userInfo.Bio;

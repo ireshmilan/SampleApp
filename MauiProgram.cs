@@ -11,22 +11,25 @@ public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
-		var builder = MauiApp.CreateBuilder();
+        var builder = MauiApp.CreateBuilder();
 		builder
             .UsePrismApp<App>(prism =>
             {
 				prism.RegisterTypes(container =>
 				{
 					container.Register<IGitHubUserService, GitHubUserService>();
+                    container.Register<IGitHubOrgService, GitHubOrgService>();
 
-					container.RegisterForNavigation<GitHubUserInfoView, GitHubUserInfoViewModel>();
-				})
+                    container.RegisterForNavigation<GitHubUserInfoView, GitHubUserInfoViewModel>();
+                    container.RegisterForNavigation<HomeView, HomeViewModel>();
+                    container.RegisterForNavigation<GitHubOrgInfoView, GitHubOrgInfoViewModel>();
+                })
 				.ConfigureServices(service =>
                 {
 					service.AddRestEaseClient<IGitHubApiService>("https://api.github.com");
                 })
 				.OnAppStart(navigationService => navigationService.CreateBuilder()
-				.AddNavigationPage().AddSegment<GitHubUserInfoViewModel>().Navigate());
+				.AddNavigationPage().AddSegment<HomeViewModel>().Navigate());
             })
 			.ConfigureFonts(fonts =>
 			{

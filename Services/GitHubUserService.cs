@@ -16,6 +16,7 @@ namespace SampleApp.Services
         public async Task<GitHubUser> GetUserInfo(string userName)
         {
             return await _gitHubApi.GetUserInfo(userName);
+                
         }
     }
 }

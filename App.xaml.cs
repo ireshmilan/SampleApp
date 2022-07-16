@@ -1,4 +1,7 @@
-﻿namespace SampleApp;
+﻿using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter;
+
+namespace SampleApp;
 
 public partial class App : Application
 {
@@ -6,5 +9,11 @@ public partial class App : Application
 	{
 		InitializeComponent();
 	}
+
+	protected override void OnStart()
+	{
+		base.OnStart();
+        AppCenter.Start("ff91f5b9-f8ba-43e8-b818-1c1432288331", typeof(Crashes));
+    }
 }
 
