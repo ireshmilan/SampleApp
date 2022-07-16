@@ -10,9 +10,9 @@
         <VerticalStackLayout Spacing="20">
             <Image HeightRequest="200" WidthRequest="200" Margin="0,50,0,0" Source="{Binding Avatar}"/>
 
-            <Label Text="{Binding DisplayName}" FontAttributes="Bold"/>
-            <Label Text="{Binding Bio}"/>
-            <Label Text="{Binding Country}"/>
+            <Label HorizontalOptions="Center" FontSize="20" Text="{Binding DisplayName}" FontAttributes="Bold"/>
+            <Label HorizontalOptions="Center" Text="{Binding Bio}"/>
+            <Label HorizontalOptions="Center" Text="{Binding Country}"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
