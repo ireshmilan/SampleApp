@@ -2,14 +2,23 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleApp.Views.HomeView"
-             Title="HomeView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Home Page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-         <Button Text="User Info" Command="{Binding UserInfoCommand}"/>
-         <Button Text="Organisation Info" Command="{Binding OrgInfoCommand}"/>
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
 
-    </VerticalStackLayout>
+    <Grid>
+        <ListView ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Price}" TextColor="Red"/>
+                            <Label Text="{Binding Description}"/>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
 </ContentPage>
